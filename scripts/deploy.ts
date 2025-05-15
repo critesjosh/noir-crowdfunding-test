@@ -70,7 +70,12 @@ async function main(): Promise<void> {
 
 
   // register the crowdfunding account in pxe2 as an account since there are public keys
+  
+  // this line works
   await pxe2.registerAccount(crowdFundingSecretKey, crowdFundingPartialAddress);
+  // this line fails
+  // await pxe2.registerContract({ instance: crowdFundingContract.instance, artifact: crowdFundingContract.artifact })
+  
   await pxe2.registerSender(deployerWallet.getAddress());
 
   await pxe3.registerContract({
